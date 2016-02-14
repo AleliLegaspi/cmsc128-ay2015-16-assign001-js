@@ -1,15 +1,15 @@
-//+===================================================+
+//+==========================================================================+
 //
 //		LEGASPI,ALELI S.		2013-06797
-//		CMSC128	AB-1L			Programming Assignment
+//		CMSC128	AB-1L			Programming Assignment1
 //
-//+===================================================+
+//+==========================================================================+
 
 //sample run
 numToWords();
-var numbah=wordsToNum("two thousand sixteen");	console.log(numbah);
+var numbah=wordsToNum("two thousand sixteen");		console.log(numbah);
 var numbahc=wordsToCurrency("one hundred","JPY");	console.log(numbahc);
-var numbahd=numberDelimited(1000000,",",3); console.log(numbahd);
+var numbahd=numberDelimited(1000000,",",3); 		console.log(numbahd);
 
 /**
 Accepts a whole number from zero (0) to 1 million
@@ -18,10 +18,7 @@ and prints on screen the number in word form
 **/
 function numToWords(){
 	var num=900009; //sample num value
-	var temp;
-	var i;
-	var next1=0;
-	var next2=0;
+	var temp, i,next1=0,next2=0;
 	
 	if(num==1000000){//millions
 		var d=Math.floor(num/1000000);
@@ -67,7 +64,7 @@ function numToWords(){
 			else if(td==7) console.log("seventeen thousand ");
 			else if(td==8) console.log("eighteen thousand ");
 			else if(td==9) console.log("nineteen thousand ");
-			next1=1;
+			next1=1;		//skip the thousandths place
 		}
 		else if(d==2) console.log("twenty ");
 		else if(d==3) console.log("thirty ");
@@ -136,7 +133,7 @@ function numToWords(){
 			else if(temp==7) console.log("seventeen ");
 			else if(temp==8) console.log("eighteen ");
 			else if(temp==9) console.log("nineteen ");
-			next2=1;	
+			next2=1;		//skip the ones place
 		}
 		else if(d==2) console.log("twenty ");
 		else if(d==3) console.log("thirty ");
@@ -154,7 +151,6 @@ function numToWords(){
 			temp=num;
 			if(temp==0) console.log("zero ");
 		}
-	
 		var d= temp;
 		if(d==1) console.log("one ");
 		else if(d==2) console.log("two ");
@@ -169,9 +165,8 @@ function numToWords(){
 }
 
 /**
-Accepts a number in word form (from zero to 1
-million) and returns it in numerical form
-Input must be in lowercase
+Accepts a number in word form (from zero to 1 million) and 
+returns it in numerical form. Input must be in lowercase.
 **/
 
 function wordsToNum(str){
@@ -274,7 +269,7 @@ function wordsToNum(str){
 						num=num+"0";//include 0 since no hundreds digit
 					}
 				}
-				i++;		//skip the 0
+				i++;	//skip the 0
 			}
 		}
 			
@@ -305,29 +300,4 @@ function numberDelimited(num,c,pos){
 	return num.toString().slice(0,num.toString().length-pos) + c + num.toString().slice(num.toString().length-pos);
 	//slice the string based on position of the character to be inserted and then join
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
